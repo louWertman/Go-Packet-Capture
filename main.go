@@ -2,19 +2,14 @@ package main
 
 import (
 	"flag"
+	"os"
 )
 
 func main(){
-	protocol := flags.String("protocol", "tcp","Protocol from which you would like to capture")
-	seconds = flags.Float64("seconds", 3, "How many seconds to capture for")
-	filePath = flags.String("filePath", "", "Where you would like to output your capture")
+	device := flags.String("interface", "eth0", "interface to capture from")
+	seconds := flags.Float64("seconds", 3, "How many seconds to capture for, float");
+	filePath := flags.String("filePath", "capture.txt", "Where you would like to output your capture");
 
-	validateFlags(*protocol, *seconds, *filePath);
 	flags.Parse();
-
-	packetCaptureStart(*protocol, *seconds, *filePath);
-}
-
-func validateFlags(){
-
+	packetCaptureStart(*device, *seconds, *file);
 }
